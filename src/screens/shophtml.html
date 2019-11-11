@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<title>ICS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Roboto", sans-serif
+  }
+
+  .mySlides {
+    display: none
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .star {
+    display: inline-block;
+    width: 30px;
+    height: 60px;
+    cursor: pointer;
+  }
+
+  .star_left {
+    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0;
+    background-size: 60px;
+    margin-right: -3px;
+  }
+
+  .star_right {
+    background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0;
+    background-size: 60px;
+    margin-left: -3px;
+  }
+
+  .star.on {
+    background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+  }
+</style>
+
+<body>
+  <div class="w3-center">
+    <a href="index.html"><img src="images/logo/logo.png" alt="logo images"></a>
+  </div>
+
+  <!-- Header -->
+  <span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+  <div class="w3-clear"></div>
+  <h2 class="blind">BTS 피규어 </h2>
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()"
+      class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px ">
+      <i class="fa fa-remove"></i>
+    </a>
+    <div class="w3-bar-block w3-center">
+      <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Home</a>
+      <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">About</a>
+      <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- Slideshow -->
+  <div class="w3-container we-center" style="width:100%">
+    <div class="w3-display-container mySlides">
+      <img src="images/BTS_image1.gif" style="width:100%">
+      <div class="w3-display-topleft w3-container w3-padding-32">
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="images/BTS_image2.gif" style="width:100%">
+      <div class="w3-display-middle w3-container w3-padding-32">
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="images/BTS_image3.gif" style="width:100%">
+      <div class="w3-display-topright w3-container w3-padding-32">
+      </div>
+    </div>
+
+    <!-- Slideshow next/previous buttons -->
+    <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
+      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
+      <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i>
+      </div>
+
+      <div class="w3-center">
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">상세설명</span>
+    </div>
+    <h4>최초 한국 출시 BTS 피규어</h4>
+
+    <style>
+      .video_youtube {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%
+      }
+
+      .video_youtube iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <div class="video_youtube">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/QmgcyLozkbQ" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="w3-center w3-padding-64" id="review">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">review</span>
+    </div>
+    <!-- reivew-->
+
+    <div class="star-box">
+      <span class="star star_left"></span>
+      <span class="star star_right"></span>
+
+      <span class="star star_left"></span>
+      <span class="star star_right"></span>
+
+      <span class="star star_left"></span>
+      <span class="star star_right"></span>
+
+      <span class="star star_left"></span>
+      <span class="star star_right"></span>
+
+      <span class="star star_left"></span>
+      <span class="star star_right"></span>
+
+
+      <p class="comment-form-comment"><label for="comment">Your review&nbsp;<span class="required"></span></label>
+        <textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea></p>
+      <p class="wcpr-comment-form-images"><label for="wcpr_image_upload">Choose pictures (maxsize: 2000 kB, max
+          files:
+          2)</label>
+        <input type="file" name="wcpr_image_upload[]" id="wcpr_image_upload" class="wcpr_image_upload" multiple=""
+          accept=".jpg, .jpeg, .png, .bmp, .gif"><input type="hidden" id="kt_max_files" name="max_files" value="2"></p>
+      <p class="comment-form-author"><label for="author">Name&nbsp;<span class="required">*</span></label> <input
+          id="author" name="author" type="text" value="" size="30" required=""></p>
+      <p class="comment-form-email"><label for="email">Email&nbsp;<span class="required">*</span></label>
+        <input id="email" name="email" type="email" value="" size="30" required=""></p>
+      <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
+          type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in this
+          browser for the next time I comment.</label></p>
+      <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit">
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:128px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium"><a href="http://icecreamsocial.io/#save-time" target="_blank"
+        class="w3-hover-text-green">ICS</a>
+    </p>
+  </footer>
+
+</body>
+<script>
+  // Toggle grid padding
+  function myFunction() {
+    var x = document.getElementById("myGrid");
+    if (x.className === "w3-row") {
+      x.className = "w3-row-padding";
+    } else {
+      x.className = x.className.replace("w3-row-padding", "w3-row");
+    }
+  }
+
+  // Open and close sidebar
+  function w3_open() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+  }
+
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+  // Slideshow
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demodots");
+    if (n > x.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = x.length
+    };
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " w3-white";
+  }
+</script>
+
+
+</html>

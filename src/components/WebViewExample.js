@@ -6,66 +6,135 @@ import {
   FlatList,
   Text,
   StyleSheet,
-  Platform
+  Platform,
+  Share
 } from "react-native";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { Linking } from "react-native";
 import { WebView } from "react-native-webview";
 import { Dimensions } from "react-native";
+import ActionBarImage from "./ActionBarImage";
+import { ScrollView } from "react-native-gesture-handler";
 export default class WebViewExample extends Component {
   static navigationOptions = {
     // headerLeft: (
     //   <Ionicons name={"ios-share-alt"} size={35} color={"lightblue"} />
     // ),
-    title: "I AM Brand"
+    headerTitle: "I AM BRAND",
+    headerLeft: <ActionBarImage />,
+    headerTintColor: "white",
+    headerStyle: {
+      backgroundColor: "#8FBFF6"
+    }
     // headerRight: (
     //   <Ionicons name={"ios-share-alt"} size={35} color={"lightblue"} />
     // )
   };
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          "React Native | A framework for building native apps using React"
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   render() {
     return (
-      <View>
-        <View style={styles.container}>
-          <WebView
-            source={{
-              html:
-                '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/9riAd3qxkpQ?&autoplay=1"frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> ,<iframe width="100%" height="100%" src="https://www.youtube.com/embed/TNIc-5GyxZ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+      <ScrollView>
+        <View>
+          <View style={{ height: 250 }}>
+            <WebView
+              style={styles.WebViewContainer}
+              style={{ flex: 1 }}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+              source={{ uri: "https://www.youtube.com/embed/3BMMqQ4C2B8" }}
+              Zs
+            />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 75,
+              left: 350,
+              right: 30,
+              bottom: 75,
+              justifyContent: "center",
+              alignItems: "flex-end"
+              // backgroundColor: "#fff"
             }}
-          />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 450,
-            left: 350,
-            right: 30,
-            bottom: 450,
-            justifyContent: "center",
-            alignItems: "flex-end",
-            backgroundColor: "#fff"
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => Linking.openURL("http://facebook.com")}
           >
-            <Ionicons name={"ios-share-alt"} size={35} color={"lightblue"} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => Linking.openURL("http://google.com")}
-          >
-            <Ionicons name={"ios-cart"} size={35} color={"lightblue"} />
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Linking.openURL("http://facebook.com")}
+            >
+              <Ionicons name={"ios-share-alt"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Shopscreen")}
+            >
+              <Ionicons name={"ios-cart"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.onShare}>
+              <Ionicons name={"ios-share"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+        <View>
+          <View style={{ height: 250 }}>
+            <WebView
+              style={styles.WebViewContainer}
+              style={{ flex: 1 }}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+              source={{ uri: "https://www.youtube.com/embed/bQWw8s2Vxug" }}
+            />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 75,
+              left: 350,
+              right: 30,
+              bottom: 75,
+              justifyContent: "center",
+              alignItems: "flex-end"
+              // backgroundColor: "#fff"
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => Linking.openURL("http://facebook.com")}
+            >
+              <Ionicons name={"ios-share-alt"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Shopscreen")}
+            >
+              <Ionicons name={"ios-cart"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.onShare}>
+              <Ionicons name={"ios-share"} size={35} color={"#8FBFF6"} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     );
   }
 }
-
 const styles = StyleSheet.create({
-  container: {
-    height: 1000
-
-    // width: "100%",
-    // resizeMode: "contain"
+  WebViewContainer: {
+    marginTop: Platform.OS == "ios" ? 20 : 1
   }
+  // width: "100%",
+  // resizeMode: "contain"
 });
